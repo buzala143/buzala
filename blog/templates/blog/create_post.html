@@ -1,0 +1,89 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+{% load static %}
+
+{% block title %}Create New Post{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">Create New Matter</h1>
+    {% if messages %}
+        {% for message in messages %}
+            <div class="alert alert-{{ message.tags }}">{{ message }}</div>
+        {% endfor %}
+    {% endif %}
+    <form method="post" enctype="multipart/form-data">
+        {% csrf_token %}
+        {{ form.title|as_crispy_field }}
+        {{ form.author_name|as_crispy_field }}
+        {{ form.against|as_crispy_field }}
+        <strong>{{ form.content|as_crispy_field }}</strong>
+        <h6>Where and when did this happen</h6>
+
+        {{ form.province|as_crispy_field }}
+        {{ form.suburb|as_crispy_field }}
+        {{ form.incident_date|as_crispy_field }}
+        
+        <div class="row">
+            <h6>Evidance (Optional)</h6>
+            <p>upload any document, photos or contract you wish exammed with your matter: </p>
+            <div class="col-md-12">{{ form.file1|as_crispy_field }}</div>
+            <div class="col-md-12">{{ form.file2|as_crispy_field }}</div>
+           
+        </div>
+        
+        <tr>    
+        
+        <button type="submit" class="btn btn-primary">Create Matter</button>
+    </form>
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<style>
+    .container {
+        max-width: 100%;
+        padding-left: 15px;
+        padding-right: 15px;
+    }
+    @media (min-width: 992px) {
+        .container {
+            max-width: 960px;
+        }
+    }
+    @media (min-width: 1200px) {
+        .container {
+            max-width: 1140px;
+        }
+    }
+</style>
+{% endblock %}
+
+{% block sidebar %}
+           
+                 
+<div class="col-md-4">
+    <div class="sidebar">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Important Tip: </h5>
+                <p class="card-text">When describing what happened please focus on: </p>
+                <ol>
+                    <li> Have you, your children or a company been wronged? </li><br>
+                    <li>Is the party that wronged you a company, government entity or a person?  </li><br>
+                    <li> Are any of the parties minors? (aproximate age in your discription)</li><br>
+                    <li>What was affected by the wrongdoer? e.g.<ul>
+                        <li>Your job</li>
+                        <li>Your body</li>
+                        <li>Your status</li>
+                        <li>A thing of value</li>
+                        <li>An existing contract</li>
+                        <li>etc.</li>
+                    </ul></li><br>
+                    <li>what resolution would you like to see?</li><br>
+                </ol>
+            </div>
+        </div>
+        <!-- put side here -->
+       
+{% endblock %}

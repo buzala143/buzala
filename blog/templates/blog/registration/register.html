@@ -1,0 +1,49 @@
+{% extends 'blog/base.html' %}
+{% load crispy_forms_tags %}
+
+{% block title %}Register{% endblock %}
+
+{% block content %}
+<div class="row justify-content-center">
+    <div class="col-md-6">
+        <div class="card">
+            <div class="card-body">
+                <h2 class="card-title text-center mb-4">Register</h2>
+                <form method="post">
+                    {% csrf_token %}
+                    {{ form|crispy }}
+                    <div class="d-grid gap-2">
+                        <div class="text-center mt-3">
+                            <p>Read our  <a href="{% url 'terms_of_service'%}">T&Cs</a> here!</p>
+                        </div>
+                        <button type="submit" class="btn btn-primary">Register</button>
+                    </div>
+                </form>
+                <div class="text-center mt-3">
+                    <p>Already have an account? <a href="{% url 'login' %}">Login here</a></p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+
+{% block sidebar %}               
+<div class="col-md-4">
+    <div class="sidebar">
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title">Check with our Expert users </h5>
+                <p class="card-text"><ul>
+                    <li>Whether you might have a case to take to court</li>
+                    <li>whether</li>
+                </ul>
+            </p>
+            </div>
+        </div>
+       
+    </div>
+        <!-- put side here -->
+        
+{% endblock %}

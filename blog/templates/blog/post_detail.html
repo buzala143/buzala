@@ -1,0 +1,99 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+
+{% block title %}{{ post.title }}{% endblock %}
+
+{% block content %}
+<div class="container mt-4">
+    <h1>{{ post.title }}</h1>
+    <p><strong> Author: </strong>{{ post.author_name }}</p>
+    <p><strong> wrongdoer: </strong>{{ post.against }}</p>
+    <p><strong>Incident Date:</strong> {{ post.incident_date }}</p>
+    <p><strong>Created At: </strong>{{ post.created_at }}</p>
+    {% if user.is_staff %}
+    <p><strong>Incident At: </strong>{{ post.province }}</p>
+    <p><strong> Author'S profile: </strong><a href="{% url 'user_profile' post.author.username %}" class="btn btn-sm btn-info ml-2">Profile</a></p>
+    {%endif%}
+    <div>
+        {{ post.content|linebreaks }}
+    </div>
+
+    <!-- Add this section to display user files -->
+    {% if post.file %}
+        <h3>Author's Files</h3>
+        <ul class="list-group mb-4">
+        {% for file in post.file  %}
+            <li class="list-group-item">
+                <a href="{{ file.file.url }}" target="_blank">{{ file.file.name }} file </a>
+            </li>
+        {% endfor %}
+        </ul>
+    {% endif %}
+
+    <!-- Existing comment section -->
+    <h2>Comments</h2>
+    {% if user.is_authenticated %}
+        <form method="post">
+            {% csrf_token %}
+            {{ comment_form.as_p }}
+            <input type="hidden" name="comment_form" value="comment_form">
+            <button type="submit" class="btn btn-primary">Add Comment</button>
+        </form>
+    {% endif %}
+
+    {% for comment in comments %}
+        <div class="card mt-3">
+            <div class="card-body">
+                <h5 class=""><strong>{{ comment.author.username }} :</strong> {{ comment.author.profile.profession }} </h5>
+                <h6 class="card-subtitle mb-2 text-muted">{{ comment.created_at }}</h6>
+                <p class="card-text">{{ comment.content }}</p>
+                
+                {% if user.is_authenticated %}
+                    <form method="post" class="mt-2">
+                        {% csrf_token %}
+                        {{ reply_form.as_p }}
+                        <input type="hidden" name="reply_form" value="reply_form">
+                        <input type="hidden" name="comment_id" value="{{ comment.id }}">
+                        <button type="submit" class="btn btn-secondary btn-sm">Reply</button>
+                    </form>
+                {% endif %}
+
+                {% for reply in comment.replies.all %}
+                    <div class="card mt-2 bg-light">
+                        <div class="card-body">
+                            <h6 class="card-title"><strong>{{ reply.author.username }}  :</strong> {{ reply.author.profile.profession }} </h6>
+                            <h6 class="card-subtitle mb-2 text-muted">{{ reply.created_at }}</h6>
+                            <p class="card-text">{{ reply.content }}</p>
+                        </div>
+                    </div>
+                {% endfor %}
+            </div>
+        </div>
+    {% empty %}
+        <p>No comments yet.</p>
+    {% endfor %}
+</div>
+{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.15.3/css/all.min.css">
+<style>
+    .card {
+        border: none;
+        box-shadow: 0 0.125rem 0.25rem rgba(0, 0, 0, 0.075);
+    }
+    .card-title {
+        color: #333;
+        font-weight: bold;
+    }
+    .text-muted {
+        font-size: 0.9rem;
+    }
+    textarea {
+        width: 100%;
+        padding: 10px;
+        border: 1px solid #ced4da;
+        border-radius: 0.25rem;
+    }
+</style>
+{% endblock %}

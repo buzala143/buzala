@@ -1,0 +1,68 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Terms of Service{% endblock %}
+
+{% block content %}
+<div class="container">
+    <h1 class="mb-4">Terms of Service</h1>
+    <div class="card">
+        <div class="card-body">
+            <h2>1. Acceptance of Terms</h2>
+            <p>By using the Platform, you acknowledge that you have read, understood, and agree to be bound by these Terms and Conditions. If you do not agree, please do not use the Platform.</p>
+
+            <h2>2. Platform purpose</h2>
+            <p>The Platform allows users to post legal problems and receive comments or suggestions from other users, some of whom may be legal professionals. However, the Platform does not offer legal advice or services.</p>
+            
+            <h2>3. Use of Service</h2>
+            <p>You agree to use Buza only for lawful purposes and in accordance with these Terms of Service. You are responsible for maintaining the confidentiality of your account and password.</p>
+
+            <h2>4. Content</h2>
+            <p>You retain all rights to the content you post on Buza. By posting content, you grant Buza a non-exclusive, royalty-free license to use, modify, reproduce, and distribute that content.</p>
+
+            <h2>5. No Legal Advice</h2>
+            <p>The content shared on the Platform is for informational purposes only. The opinions and comments provided by users, including legal professionals, do not reflect the opinions of the Platform.</p>
+            <p><strong>Indemnity:</strong> You acknowledge that any reliance on any information or advice provided through the Platform is at your own risk. The Platform does not endorse or guarantee the accuracy, reliability, or completeness of any information provided by users.</p>
+
+            <h2>6. Prohibited Activities</h2>
+            <p>You agree not to engage in any activity that interferes with or disrupts Buza or the servers and networks connected to Buza.</p>
+
+            <h2>7. User Responsibilities</h2>
+            <ul>
+                <li><strong>Postings:</strong> You are solely responsible for the content you post on the Platform. You must ensure that your posts do not violate any laws or the rights of any third party.</li>
+                <li><strong>Respect and Conduct:</strong> You agree to engage respectfully and constructively with other users. Harassment, hate speech, or any form of discriminatory behavior will not be tolerated.</li>
+            </ul>
+            <h2>8. Limitations of Liability</h2>
+            <p>To the fullest extent permitted by law, Buzawill not be liable for any direct, indirect, incidental, special, consequential, or punitive damages arising from or related to your use of the Platform, including but not limited to any loss of data, loss of income, or loss of reputation.</p>
+            
+            <h2>9. Indemnification</h2>
+            <p>You agree to indemnify and hold harmless Buza, its affiliates, and its employees from any claims, damages, losses, liabilities, costs, or expenses (including reasonable attorneys’ fees) arising out of or related to your use of the Platform, your violation of these Terms and Conditions, or your violation of any rights of another party.</p>
+
+            <h2>10. Intellectual Property</h2>
+            <p>All content, trademarks, and other intellectual property on the Platform are owned by Buza or its licensors. You may not use, reproduce, or distribute any content without express written permission from the Platform.</p>
+
+            <h2>11. Termination</h2>
+            <p>We may terminate or suspend your account and bar access to the Service immediately, without prior notice or liability, under our sole discretion, for any reason whatsoever.</p>
+
+            <h2>12. Changes to Terms</h2>
+            <p>We may update these Terms and Conditions from time to time. We will notify you of any changes by posting the new Terms on the Platform. Your continued use of the Platform after changes have been made constitutes your acceptance of the new Terms.</p>
+
+            <h2>Governing Law</h2>
+            <p>These Terms and Conditions shall be governed by and construed in accordance with the laws of the Republic of South Africa. Any disputes arising from these Terms shall be resolved in the competent courts of South Africa.</p>
+            
+            <h2>Contact Information</h2>
+            <p>For any questions or concerns regarding these Terms and Conditions, please contact us at: </p>
+            <p><strong>Address:</strong> 1 Address law Address 2222</p>
+                <p><strong>email:</strong>info@buzala.co.za</p>
+                <p><strong>Telephone:</strong> 011 000 - 0000</p>
+
+            <p>By using Buza, you signify your acceptance of these Terms and Conditions. If you do not agree to these terms, please refrain from using the Platform.</p>
+            
+            <p class="mt-4">Last updated: {% now "F d, Y" %}</p>
+
+            {% if user.is_authenticated %}
+                <li>Right to Unsubscribe: Users have the right to unsubscribe from [Your Web App Name] at any time. To unsubscribe: <a href="{% url 'unsubscribe' %}" class="">Unsubscribe</a></li>
+            {% endif %}
+        </div>
+    </div>
+</div>
+{% endblock %}

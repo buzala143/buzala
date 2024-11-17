@@ -1,0 +1,86 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block title %}Welcome to BUZA{% endblock %}
+
+{% block jumbotron %}
+<div class="jumbotron container" >
+    <h1 class="display-4">Welcome to BUZA LA</h1>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p class="lead">Your Go-To Community for Navigating complicated concepts with Confidence, Support, and Real Insights!</p>
+            <p class="text">before paying a proffessional expensive consultations fees</p>
+            <p class="text-center">  post your situation, questions or concerns for free</p>
+            <p class="text-end">and our community will help you figure out if you have a case worth taking further</p>
+           <hr class="danger">
+            {% if user.is_authenticated %}
+            <a href="{% url 'create_post' %}" class="btn btn-outline-danger btn-lg">Upload your matter</a>
+        {% else %}
+            <a href="{% url 'login' %}" class="btn btn-outline-primary btn-lg">Login to Post</a>
+        {% endif %}
+       
+        </div>
+        
+    </div>
+    </div>
+    
+</div>
+{% endblock %}
+
+{% block content %}
+
+<h2 class="mb-3">Recent Matters</h2>
+{% if recent_posts %}
+    {% for post in recent_posts %}
+        <div class="card mb-4">
+            <div class="card-body">
+                <h3 class="card-title"><a href="{% url 'post_detail' post.id %}" class="text-decoration-none">{{ post.title }}</a></h3>
+                <p class="card-text">{{ post.content|truncatewords:60 }}</p>
+                <p class="card-text">
+                    <small class="text-muted">By <strong>{{ post.author }}</strong> on {{ post.created_at|date:"F d, Y" }}</small>
+                </p>
+                <a href="{% url 'post_detail' post.id %}" class="btn btn-outline-primary">Read More</a>
+            </div>
+        </div>
+    {% endfor %}
+{% else %}
+    <p>No posts yet.</p>
+{% endif %}
+{% endblock %}
+{% block sidebar %}               
+<div class="col-md-4">
+    <div class="sidebar">
+        <div class="card mb-4">
+            <!-- <img src="{% static 'images/blog-sidebar-image.jpg' %}" class="card-img-top" alt="Blog Image"> -->
+            <div class="card-body">
+                
+                <h3 class="card-title">How Buza Works</h3>
+                <ul>
+                    <br><li class="text-justify"><strong>Post Your Question:</strong> Simply create an account and share your legal question with our community. You can ask anything from basic inquiries to more complex issues.</li>
+                   <br> <li><strong>Engage with Experts:</strong> Our platform allows users, including legal professionals and experienced advisers, to respond to your questions. You’ll receive insights and perspectives that can help you understand your situation better.</li>
+                   <br><li><strong>Learn About Your Options:</strong> While we do not provide legal advice or endorse specific actions as a platform , our community can help clarify whether you may have a claim and the potential steps you could take.</li>
+                   <br><li><strong>Find Legal Support:</strong> If you need further assistance, we can connect you with qualified legal providers who are equipped to help you navigate your legal journey. Your contact information will be securely shared with these professionals, enabling them to reach out and discuss your needs.</li>
+                </ul>            </div>
+        </div>
+        {%if false%}
+        <div class="card mb-4">
+            <img src="{% static 'images/blog-sidebar-image.jpg' %}" class="card-img-top" alt="Blog Image">
+            <div class="card-body"> 
+                <h5 class="card-title">What is Buza</h5>
+                <p class="card-text text-justify">Buza is a free platform where you can have your complicated </p>
+            </div>
+        </div>
+        <!-- put side here -->
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Categories</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Community Actions</a></li>
+                    <li><a href="#">Local Events</a></li>
+                    <li><a href="#">Inspirational Moments</a></li>
+                </ul>
+            </div>
+        </div>
+        {%endif%}
+{% endblock %}

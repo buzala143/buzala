@@ -1,0 +1,32 @@
+{% extends 'blog/base.html' %}
+
+{% block title %}Testimonials{% endblock %}
+
+{%block content%}
+    <h1>Random Testimonial</h1>
+    
+    {%if testimonial%}
+    {%for test in testimonial%}
+        
+    
+        <div class="card mb-4">
+            <div class="card-body">
+        
+            <blockquote>
+                <p>{{ test.content }}</p>
+                <footer>— {{ test.author_name }}</footer>
+            </blockquote>
+       
+            
+        
+        </div>
+    </div>
+    
+    {%endfor%}
+    {%else%}
+            <p>No testimonials available.</p>
+        {%endif%}
+
+{% endblock %}
+
+   
