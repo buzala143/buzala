@@ -1,0 +1,139 @@
+{% extends 'blog/base.html' %}
+{% load static %}
+{% block title %}Welcome to BUZA{% endblock %}
+
+{% block jumbotron %}
+<div class="jumbotron container" >
+    <h1 class="display-4">Welcome to BUZA LA</h1>
+    <div class="container">
+    <div class="row">
+        <div class="col-md-12">
+            <p class="lead">Your Go-To Community for Navigating complicated concepts with Confidence, Support, and Real Insights!</p>
+            <p class="text">before paying a proffessional expensive consultations fees</p>
+            <p class="text-center">  post your situation, questions or concerns for free</p>
+            <p class="text-end">and our community will help you figure out if you have a case worth taking further</p>
+           <hr class="danger">
+            {% if user.is_authenticated %}
+            <a href="{% url 'create_post' %}" class="btn btn-outline-danger btn-lg">Upload your Case</a>
+        {% else %}
+            <a href="{% url 'login' %}" class="btn btn-outline-primary btn-lg">Login to Post</a>
+        {% endif %}
+       
+        </div>
+        
+    </div>
+    </div>
+    
+</div>
+{% endblock %}
+
+{% block content %}
+<div class="p-3 mb-3  my-5 bg-light rounded">
+    <h4 class="font-italic">Welcome to Buzala</h4>
+    <p class="justify-content-center">Buza is a free platform that enables users to share their experiences where they were wronged and the circumstances. Expert users of the platform then analyse these experiences.They provide informed guidance regarding potential entitlements or benefits that may be due to the wronged party.</p>
+    
+</div>
+<section class="py-5 ">
+    <h4 class="font-italic">helpful articles</h4> 
+    <p>To assist you understand your rights, we have prepared the below articles. These articles are designed to help you navigate these legal concepts. Most people interact with these legal concepts and don’t know it;<br> 
+        if you have bought a defective product and where told of “voetstoots”;<br>
+        If you have been wronged and have a claim, you have a specified time to act on that claim. 
+        </p>
+    <div class="container px-5 my-5 ">
+ 
+        <div class="row gx-5 ">
+            <div class="col-lg-12 mb-5">
+                <div class="card h-100 shadow border-0">
+                    <div class="card-body p-4">
+                        <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">Prescription: Is your case still valid? </h5></a>
+                        <p class="card-text mb-0">Prescription is a legal principle in terms of which a debtor's liability to pay an outstanding debt is extinguished after the passing of prescribed time periods. The above will apply, provided that the debtor has not during such prescribed period, in any way acknowledged his/her liability to pay such debt. <a> - Read more -</a></p>
+                    </div>
+                    <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                        <div class="d-flex align-items-end justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <div class="small">
+                                   
+                                    <div class="text-muted">Last Updated: March 12, 2024 &middot;</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 mb-5">
+                <div class="card h-100 shadow border-0">
+                    <div class="card-body p-4">
+                            <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">Voetstoots: have you been sold a defective product?</h5></a>
+                        <p class="card-text mb-0">This means that in fact, the “voetstoots” clause can still be included in a contract,?on the condition that the seller has clearly disclosed all defects to the purchaser and the purchaser has accepted this. The defects could be included in the contract by the means of an annexure to the contract or if the contract drafted by the agent allows for the addition of special information. - Read more - </p>
+                    </div>
+                    <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                        <div class="d-flex align-items-end justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <div class="small">
+                                    
+                                    <div class="text-muted">Last Updated: March 12, 2024 &middot;</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            <div class="col-lg-12 mb-5">
+                <div class="card h-100 shadow border-0">
+                    <div class="card-body p-4">
+                        <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">Labour Relations: Was your dismisal fair </h5></a>
+                        <p class="card-text mb-0">Unfair dismissal is when an employer terminates an employee's contract without a valid reason or in violation of labor laws. The Labour Relations Act (LRA) in South Africa protects employees from unfair dismissal and discrimination. - Read more -</p>
+                    </div>
+                    <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                        <div class="d-flex align-items-end justify-content-between">
+                            <div class="d-flex align-items-center">
+                                <div class="small">
+                                    <div class="text-muted">Last Updated: March 12, 2024 &middot;</div>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+        <div class="col-lg-12 mb-5">
+            <div class="card h-100 shadow border-0">
+                <div class="card-body p-4">
+                        <a class="text-decoration-none link-dark stretched-link" href="#!"><h5 class="card-title mb-3">Breach of contract: know when your contract is breached</h5></a>
+                    <p class="card-text mb-0">A breach of contract is when one party to the contract doesn't do what they agreed. Breach of contract happens when one party to a valid contract fails to fulfill their side of the agreement. If a party doesn't do what the contract says they must do, the other party can sue. example: unpaid loan.- Read more - </p>
+                </div>
+                <div class="card-footer p-4 pt-0 bg-transparent border-top-0">
+                    <div class="d-flex align-items-end justify-content-between">
+                        <div class="d-flex align-items-center">
+                            <div class="small">
+                                
+                                <div class="text-muted">Last Updated: March 12, 2024 &middot;</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+
+
+
+
+{% endblock %}
+
+
+
+{% block sidebar %}
+           
+
+<!-- <aside class="col-md-4 blog-sidebar py-5">
+    <div class="p-3 mb-3 bg-light rounded">
+      <h4 class="font-italic">About</h4>
+      <p class="justify-content-center">Buza is a free platform that enables users to share their experiences where they were wronged and the circumstances. Expert users of the platform then analyse these experiences.They provide informed guidance regarding potential entitlements or benefits that may be due to the wronged party.</p>
+    </div> -->
+
+   
+
+{% endblock %}

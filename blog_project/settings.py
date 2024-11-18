@@ -28,8 +28,7 @@ SECRET_KEY = 'django-insecure-m^qxs1$j17=gz0%z#l-eheaz+ya)-(rw@nmty)-2zpass*iuut
 DEBUG = True
 # DEBUG = False
 
-# ALLOWED_HOSTS = ['your-heroku-app.herokuapp.com']  # Updated to include Heroku app URL
-ALLOWED_HOSTS = ['localhost:8000', 'buzala.onrender.com']  
+ALLOWED_HOSTS = [ 'localhost' ,'localhost:8000' , 'buzala.onrender.com' ]  
 
 # Application definition
 

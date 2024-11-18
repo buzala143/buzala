@@ -14,7 +14,7 @@
             <p class="text-end">and our community will help you figure out if you have a case worth taking further</p>
            <hr class="danger">
             {% if user.is_authenticated %}
-            <a href="{% url 'create_post' %}" class="btn btn-outline-danger btn-lg">Upload your matter</a>
+            <a href="{% url 'create_post' %}" class="btn btn-outline-danger btn-lg">Upload your Case</a>
         {% else %}
             <a href="{% url 'login' %}" class="btn btn-outline-primary btn-lg">Login to Post</a>
         {% endif %}
@@ -29,7 +29,7 @@
 
 {% block content %}
 
-<h2 class="mb-3">Recent Matters</h2>
+<h2 class="mb-3">Recent Cases</h2>
 {% if recent_posts %}
     {% for post in recent_posts %}
         <div class="card mb-4">

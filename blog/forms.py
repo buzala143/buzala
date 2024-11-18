@@ -72,13 +72,15 @@ class UserProfileForm(forms.ModelForm):
     class Meta:
         model = UserProfile
         fields = ['phone_number', 'profession']
+        
 
 
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
     phone_number = forms.CharField(max_length=15, required=False)
-    profession = forms.CharField(max_length=15, required=False)
+    profession = forms.CharField(max_length=15, required=False )
 
     class Meta:
         model = User
         fields = ['username','first_name' ,'profession', 'email', 'phone_number', 'password1', 'password2']
+        

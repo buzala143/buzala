@@ -18,6 +18,13 @@ from django.contrib.auth import logout
 from django.views.decorators.csrf import csrf_exempt
 import random
 
+
+def index(request):
+    context = {
+
+    }
+    return render(request, 'blog/index.html', context )
+
 def is_admin(user):
     return user.is_authenticated and user.is_staff
 
