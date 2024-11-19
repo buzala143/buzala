@@ -18,7 +18,8 @@
         {% else %}
             <a href="{% url 'login' %}" class="btn btn-outline-primary btn-lg">Login to Post</a>
         {% endif %}
-       
+        <a href="{% url 'home' %}" class="btn btn-outline-primary btn-lg">View Case List</a>
+
         </div>
         
     </div>
@@ -28,17 +29,63 @@
 {% endblock %}
 
 {% block content %}
+
+<h2 class="mb-3">Welcome to Buzala</h2>
+
+
+    <h6 class="font-italic">Helpful articles</h6> 
+    <p>To assist you understand your rights, we have prepared the below articles. These articles are designed to help you navigate these legal concepts. Most people interact with these legal concepts and don’t know it:<br> </p>    
+
+    
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title"><a href="#" class="text-decoration-none text-dark">Prescription: Is your case still valid?</a></h5>
+                <p class="card-text">Prescription is a legal principle in terms of which a debtor's liability to pay an outstanding debt is extinguished after the passing of prescribed time periods. The above will apply, provided that the debtor has not during such prescribed period, in any way acknowledged his/her liability to pay such debt.</p>
+                <p class="card-text">
+                    <a href="#" class="btn btn-outline-dark">Read More</a>
+                    <small class="text-muted">By <strong>author</strong> on date</small>
+                </p>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body">
+                <h5 class="card-title"><a href="#" class="text-decoration-none text-dark">Voetstoots: have you been sold a defective product?</a></h5>
+                <p class="card-text">This means that in fact, the “voetstoots” clause can still be included in a contract,?on the condition that the seller has clearly disclosed all defects to the purchaser and the purchaser has accepted this. The defects could be included in the contract by the means of an annexure to the contract or if the contract drafted by the agent allows for the addition of special information.   </p>
+                <p class="card-text">
+                    <a href="#" class="btn btn-outline-dark">Read More</a>
+                    <small class="text-muted">By <strong>author</strong> on date</small>
+                </p>
+            </div>
+        </div>
+        <div class="card mb-4">
+            <div class="card-body ">
+                <h5 class="card-title "><a href="#" class="text-decoration-none text-dark">Labour Relations: Was your dismisal fair </a></h5>
+                <p class="card-text">Unfair dismissal is when an employer terminates an employee's contract without a valid reason or in violation of labor laws. The Labour Relations Act (LRA) in South Africa protects employees from unfair dismissal and discrimination. </p>
+                <p class="card-text">
+                    <a href="#" class="btn btn-outline-dark">Read More</a>
+                    <small class="text-muted">By <strong>author</strong> on date</small>
+                </p>
+            </div>
+        </div>
+    
+
+{% endblock %}
+
+
 <div class="p-3 mb-3  my-5 bg-light rounded">
     <h4 class="font-italic">Welcome to Buzala</h4>
     <p class="justify-content-center">Buza is a free platform that enables users to share their experiences where they were wronged and the circumstances. Expert users of the platform then analyse these experiences.They provide informed guidance regarding potential entitlements or benefits that may be due to the wronged party.</p>
-    
 </div>
-<section class="py-5 ">
+
+<div class="p-3 mb-3  my-5 rounded">
     <h4 class="font-italic">helpful articles</h4> 
     <p>To assist you understand your rights, we have prepared the below articles. These articles are designed to help you navigate these legal concepts. Most people interact with these legal concepts and don’t know it;<br> 
-        if you have bought a defective product and where told of “voetstoots”;<br>
-        If you have been wronged and have a claim, you have a specified time to act on that claim. 
-        </p>
+       -  if you have bought a defective product and where told of “voetstoots”;<br>
+       -  If you have been wronged and have a claim, you have a specified time to act on that claim. 
+        </p>    </div>
+
+
+    
     <div class="container px-5 my-5 ">
  
         <div class="row gx-5 ">
@@ -121,19 +168,56 @@
 
 
 
-{% endblock %}
-
-
-
 {% block sidebar %}
-           
+
+<div class="col-md-4">
+    <div class="sidebar">
+        <div class="card mb-4">
+            <!-- <img src="{% static 'images/blog-sidebar-image.jpg' %}" class="card-img-top" alt="Blog Image"> -->
+            <div class="card-body">
+                
+                <h3 class="card-title">How Buza Works</h3>
+                <ul>
+                    <br><li class="text-justify"><strong>Post Your Question:</strong> Simply create an account and share your legal question with our community. You can ask anything from basic inquiries to more complex issues.</li>
+                   <br> <li><strong>Engage with Experts:</strong> Our platform allows users, including legal professionals and experienced advisers, to respond to your questions. You’ll receive insights and perspectives that can help you understand your situation better.</li>
+                   <br><li><strong>Learn About Your Options:</strong> While we do not provide legal advice or endorse specific actions as a platform , our community can help clarify whether you may have a claim and the potential steps you could take.</li>
+                   <br><li><strong>Find Legal Support:</strong> If you need further assistance, we can connect you with qualified legal providers who are equipped to help you navigate your legal journey. Your contact information will be securely shared with these professionals, enabling them to reach out and discuss your needs.</li>
+                </ul>            </div>
+        </div>
+        {%if false%}
+        <div class="card mb-4">
+            <img src="{% static 'images/blog-sidebar-image.jpg' %}" class="card-img-top" alt="Blog Image">
+            <div class="card-body"> 
+                <h5 class="card-title">What is Buza</h5>
+                <p class="card-text text-justify">Buza is a free platform where you can have your complicated </p>
+            </div>
+        </div>
+        <!-- put side here -->
+        <div class="card">
+            <div class="card-body">
+                <h5 class="card-title">Categories</h5>
+                <ul class="list-unstyled">
+                    <li><a href="#">Testimonials</a></li>
+                    <li><a href="#">Community Actions</a></li>
+                    <li><a href="#">Local Events</a></li>
+                    <li><a href="#">Inspirational Moments</a></li>
+                </ul>
+            </div>
+        </div>
+        {%endif%}
 
 <!-- <aside class="col-md-4 blog-sidebar py-5">
     <div class="p-3 mb-3 bg-light rounded">
       <h4 class="font-italic">About</h4>
       <p class="justify-content-center">Buza is a free platform that enables users to share their experiences where they were wronged and the circumstances. Expert users of the platform then analyse these experiences.They provide informed guidance regarding potential entitlements or benefits that may be due to the wronged party.</p>
-    </div> -->
-
+    </div>
+</aside> -->
    
 
 {% endblock %}
+
+
+
+
+
+
