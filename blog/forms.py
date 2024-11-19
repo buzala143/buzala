@@ -74,13 +74,17 @@ class UserProfileForm(forms.ModelForm):
         fields = ['phone_number', 'profession']
         
 
-
+FRUIT_CHOICES= [
+    ('NormalUser', 'Normal User'),
+    ('Legal P User', 'Legal proffessional'),
+    ('Legal', 'Legal non proffessional'),
+    
+    ]
 class UserRegisterForm(UserCreationForm):
     email = forms.EmailField()
     phone_number = forms.CharField(max_length=15, required=False)
-    profession = forms.CharField(max_length=15, required=False )
 
     class Meta:
         model = User
-        fields = ['username','first_name' ,'profession', 'email', 'phone_number', 'password1', 'password2']
+        fields = ['username' , 'email', 'phone_number', 'password1', 'password2']
         

@@ -44,7 +44,7 @@
     {% for comment in comments %}
         <div class="card mt-3">
             <div class="card-body">
-                <h5 class=""><strong>{{ comment.author.username }} :</strong> {{ comment.author.profile.profession }} </h5>
+                <h5 class=""><strong>{{ comment.author.username }} </strong>  </h5>
                 <h6 class="card-subtitle mb-2 text-muted">{{ comment.created_at }}</h6>
                 <p class="card-text">{{ comment.content }}</p>
                 
@@ -61,7 +61,7 @@
                 {% for reply in comment.replies.all %}
                     <div class="card mt-2 bg-light">
                         <div class="card-body">
-                            <h6 class="card-title"><strong>{{ reply.author.username }}  :</strong> {{ reply.author.profile.profession }} </h6>
+                            <h6 class="card-title"><strong>{{ reply.author.username }}  </strong> </h6>
                             <h6 class="card-subtitle mb-2 text-muted">{{ reply.created_at }}</h6>
                             <p class="card-text">{{ reply.content }}</p>
                         </div>
